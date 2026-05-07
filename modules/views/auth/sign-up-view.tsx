@@ -19,6 +19,7 @@ import { Alert, AlertTitle } from "@/components/ui/alert";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { authClient } from "@/lib/auth-client";
+import { FcGoogle } from "react-icons/fc";
 
 const formSchema = z
   .object({
@@ -59,6 +60,26 @@ export function SignUpView() {
     );
   };
 
+  const onSocial = async (provider: "google") => {
+    setError(null);
+    setLoading(true);
+    await authClient.signIn.social(
+      {
+        provider: provider,
+        callbackURL: "/",
+      },
+      {
+        onSuccess: () => {
+          setLoading(false);
+        },
+        onError: ({ error }) => {
+          setError(error.message);
+          setLoading(false);
+        },
+      },
+    );
+  };
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -74,7 +95,7 @@ export function SignUpView() {
       title="Let's get started!"
       subtitle="Enter your details below to continue"
       footerText="Already have an account?"
-      footerHref="/auth/sign-in"
+      footerHref="/login"
       footerLabel="Sign in"
     >
       <Form {...form}>
@@ -179,12 +200,16 @@ export function SignUpView() {
               Or continue with
             </span>
           </div>
-          <div className="grid grid-cols-2 gap-3">
-            <Button variant="outline" type="button" className="h-10 w-full">
-              <span className="">Google</span>
-            </Button>
-            <Button variant="outline" type="button" className="h-10 w-full">
-              <span className="">Github</span>
+          <div>
+            <Button
+              disabled={loading}
+              onClick={() => onSocial("google")}
+              type="button"
+              variant="outline"
+              className="h-12 w-full rounded-full border border-[#747574] bg-white px-5 text-[17px] font-medium text-[#3c4043] shadow-none hover:bg-white hover:text-[#202124] sm:text-lg cursor-pointer"
+            >
+              <FcGoogle className="size-7" />
+              <span>Sign up with Google</span>
             </Button>
           </div>
         </form>
