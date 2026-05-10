@@ -87,7 +87,7 @@ export function DashboardSidebar({ user }: DashboardSidebarProps) {
       <SidebarHeader className="py-4">
         <Link
           href="/"
-          className="flex h-10 items-center gap-3 rounded-md text-sidebar-foreground"
+          className="flex h-7.0 items-center gap-3 rounded-md text-sidebar-foreground"
         >
           <span className="grid size-8 shrink-0 place-items-center rounded-md bg-[#0077b6] text-white shadow-sm">
             <SparklesIcon className="size-5" />
