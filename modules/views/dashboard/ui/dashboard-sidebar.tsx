@@ -84,12 +84,12 @@ export function DashboardSidebar({ user }: DashboardSidebarProps) {
 
   return (
     <Sidebar collapsible="icon" className="border-sidebar-border bg-sidebar">
-      <SidebarHeader className="px-3 py-4">
+      <SidebarHeader className="py-4">
         <Link
           href="/"
-          className="flex h-10 items-center gap-3 rounded-md px-2 text-sidebar-foreground"
+          className="flex h-10 items-center gap-3 rounded-md text-sidebar-foreground"
         >
-          <span className="grid size-9 shrink-0 place-items-center rounded-md bg-[#0077b6] text-white shadow-sm">
+          <span className="grid size-8 shrink-0 place-items-center rounded-md bg-[#0077b6] text-white shadow-sm">
             <SparklesIcon className="size-5" />
           </span>
           <span className="min-w-0 text-lg font-semibold tracking-[-0.02em] group-data-[collapsible=icon]:hidden">
@@ -101,7 +101,7 @@ export function DashboardSidebar({ user }: DashboardSidebarProps) {
       <Separator />
 
       <SidebarContent className="px-2 py-3">
-        <SidebarGroup>
+        <SidebarGroup className="p-0">
           <SidebarGroupLabel>Workspace</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu className="gap-1">
@@ -147,19 +147,19 @@ export function DashboardSidebar({ user }: DashboardSidebarProps) {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="border-t border-sidebar-border p-3">
+      <SidebarFooter className="border-t border-sidebar-border p-3 group-data-[collapsible=icon]:p-1">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <button className="flex w-full min-w-0 items-center gap-2 rounded-md bg-[#f5fbff] p-2 text-left ring-1 ring-sidebar-border transition-colors hover:bg-[#dff5fd] focus-visible:ring-2 focus-visible:ring-[#0077b6] focus-visible:outline-none">
+            <button className="flex w-full min-w-0 items-center gap-2 rounded-md bg-[#f5fbff] p-2 text-left ring-1 ring-sidebar-border transition-colors hover:bg-[#dff5fd] focus-visible:ring-2 focus-visible:ring-[#0077b6] focus-visible:outline-none group-data-[collapsible=icon]:size-10 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-0">
               {user.image ? (
-                <Avatar className="size-9">
+                <Avatar className="size-9 group-data-[collapsible=icon]:size-8">
                   <AvatarImage src={user.image} alt={user.name ?? ""} />
                 </Avatar>
               ) : (
                 <GeneratedAvatar
                   seed={user.name ?? user.email ?? initials}
                   variant="initials"
-                  className="size-9 mr-3 object-center"
+                  className="size-9 object-center group-data-[collapsible=icon]:size-8"
                 />
               )}
               <div className="min-w-0 flex-1 group-data-[collapsible=icon]:hidden">

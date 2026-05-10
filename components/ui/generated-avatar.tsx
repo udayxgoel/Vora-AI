@@ -17,7 +17,7 @@ export const GeneratedAvatar: React.FC<GeneratedAvatarProps> = ({
 }) => {
   let avatar;
   if (variant === "botttsNeutral") {
-    const avatar = createAvatar(
+    avatar = createAvatar(
       variant === "botttsNeutral" ? botttsNeutral : initials,
       {
         seed,
@@ -32,7 +32,7 @@ export const GeneratedAvatar: React.FC<GeneratedAvatarProps> = ({
   }
 
   return (
-    <Avatar>
+    <Avatar className={cn(className)}>
       <AvatarImage src={avatar?.toDataUri()} alt="Avatar" />
       <AvatarFallback>{seed.charAt(0).toUpperCase()}</AvatarFallback>
     </Avatar>
