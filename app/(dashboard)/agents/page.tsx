@@ -1,5 +1,5 @@
-import ErrorState from "@/components/error-state";
-import LoadingState from "@/components/loading-state";
+import ErrorState from "@/components/ui/error-state";
+import LoadingState from "@/components/ui/loading-state";
 import AgentsView from "@/modules/views/agents/ui/views/agents-view";
 import { getQueryClient, trpc } from "@/trpc/server";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
