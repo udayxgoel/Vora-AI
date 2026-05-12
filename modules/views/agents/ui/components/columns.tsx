@@ -1,0 +1,52 @@
+"use client";
+
+import { ColumnDef } from "@tanstack/react-table";
+import { AgentGetMany } from "../../types";
+import { GeneratedAvatar } from "@/components/ui/generated-avatar";
+import { Badge } from "@/components/ui/badge";
+import { CornerDownRightIcon, VideoIcon } from "lucide-react";
+
+type Agent = AgentGetMany[number];
+
+export const columns: ColumnDef<Agent>[] = [
+  {
+    accessorKey: "name",
+    header: "Agent Name",
+    cell: ({ row }) => {
+      return (
+        <div className="flex flex-col gap-y-1">
+          <div className="flex items-center gap-x-2">
+            <GeneratedAvatar
+              variant="botttsNeutral"
+              seed={row.original.name}
+              className="size-6"
+            />
+            <span className="font-semibold capitalize">
+              {row.original.name}
+            </span>
+          </div>
+          <div className="flex items-center gap-x-1">
+            <CornerDownRightIcon className="size-3 text-muted-foreground" />
+            <span className="text-sm text-muted-foreground max-w-50 truncate">
+              {row.original.instructions}
+            </span>
+          </div>
+        </div>
+      );
+    },
+  },
+  {
+    accessorKey: "meetingCount",
+    header: "Meetings",
+    cell: ({ row }) => {
+      return (
+        <Badge
+          variant="outline"
+          className="flex items-center gap-x-2 [&>svg]:size-4"
+        >
+          <VideoIcon className="text-blue-700" />5 meetings
+        </Badge>
+      );
+    },
+  },
+];
