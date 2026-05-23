@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { PlusIcon } from "lucide-react";
 import { NewAgentDialog } from "./new-agent-dialog";
 import { useState } from "react";
+import { AgentSearchFilter } from "./agent-search-filter";
 
 export const AgentsListHeader = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -19,6 +20,7 @@ export const AgentsListHeader = () => {
             New Agent
           </Button>
         </div>
+        <AgentSearchFilter />
       </div>
     </>
   );

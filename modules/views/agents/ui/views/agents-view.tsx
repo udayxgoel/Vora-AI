@@ -5,12 +5,18 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { DataTable } from "../components/data-table";
 import { columns } from "../components/columns";
 import EmptyState from "@/components/ui/empty-state";
+import { useAgentsFilters } from "../../hooks/use-agents-filters";
+import { DataPagination } from "../components/data-pagination";
 
 export default function AgentsView() {
-  const trpc = useTRPC();
-  const { data } = useSuspenseQuery(trpc.agents.getMany.queryOptions());
+  const [filters, setFilters] = useAgentsFilters();
 
-  if (data.length === 0) {
+  const trpc = useTRPC();
+  const { data } = useSuspenseQuery(
+    trpc.agents.getMany.queryOptions({ ...filters }),
+  );
+
+  if (data.items.length === 0) {
     return (
       <EmptyState
         title="Create your first agent"
@@ -21,7 +27,12 @@ export default function AgentsView() {
 
   return (
     <div>
-      <DataTable data={data} columns={columns} />
+      <DataTable data={data.items} columns={columns} />
+      <DataPagination
+        page={filters.page}
+        totalPages={data.totalPages}
+        onPageChange={(page) => setFilters({ page })}
+      />
     </div>
   );
 }

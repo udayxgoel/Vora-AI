@@ -6,7 +6,7 @@ import { GeneratedAvatar } from "@/components/ui/generated-avatar";
 import { Badge } from "@/components/ui/badge";
 import { CornerDownRightIcon, VideoIcon } from "lucide-react";
 
-type Agent = AgentGetMany[number];
+type Agent = AgentGetMany["items"][number];
 
 export const columns: ColumnDef<Agent>[] = [
   {
@@ -44,7 +44,9 @@ export const columns: ColumnDef<Agent>[] = [
           variant="outline"
           className="flex items-center gap-x-2 [&>svg]:size-4"
         >
-          <VideoIcon className="text-blue-700" />5 meetings
+          <VideoIcon className="text-blue-700" />
+          {row.original.meetingCount}{" "}
+          {row.original.meetingCount === 1 ? "meeting" : "meetings"}
         </Badge>
       );
     },
