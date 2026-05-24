@@ -54,6 +54,22 @@ export const AgentForm: React.FC<AgentFormProps> = ({
           trpc.agents.getMany.queryOptions({}),
         );
 
+        onSuccess?.();
+      },
+
+      onError: (error) => {
+        toast.error(error.message);
+      },
+    }),
+  );
+
+  const updateAgent = useMutation(
+    trpc.agents.update.mutationOptions({
+      onSuccess: async () => {
+        await queryClient.invalidateQueries(
+          trpc.agents.getMany.queryOptions({}),
+        );
+
         if (initialValues?.id) {
           queryClient.invalidateQueries(
             trpc.agents.getOne.queryOptions({ id: initialValues.id }),
@@ -69,10 +85,11 @@ export const AgentForm: React.FC<AgentFormProps> = ({
     }),
   );
 
-  const isPending = createAgent.isPending;
+  const isPending = createAgent.isPending || updateAgent.isPending;
 
   const onSubmit = form.handleSubmit((values) => {
     if (isEdit) {
+      updateAgent.mutate({ id: initialValues.id, ...values });
       return;
     }
 
