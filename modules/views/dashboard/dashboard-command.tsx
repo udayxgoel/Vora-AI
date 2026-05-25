@@ -18,7 +18,6 @@ export const DashboardCommand: React.FC<Props> = ({ open, setOpen }) => {
     <CommandDialog open={open} onOpenChange={setOpen}>
       <Command>
         <CommandInput placeholder="Find your meetings and agents..." />
-
         <CommandList>
           <CommandItem>Command 1</CommandItem>
         </CommandList>
