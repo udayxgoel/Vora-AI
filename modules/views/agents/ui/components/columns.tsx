@@ -6,9 +6,7 @@ import { GeneratedAvatar } from "@/components/ui/generated-avatar";
 import { Badge } from "@/components/ui/badge";
 import { CornerDownRightIcon, VideoIcon } from "lucide-react";
 
-type Agent = AgentGetMany["items"][number];
-
-export const columns: ColumnDef<Agent>[] = [
+export const columns: ColumnDef<AgentGetMany[number]>[] = [
   {
     accessorKey: "name",
     header: "Agent Name",
