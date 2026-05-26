@@ -34,6 +34,11 @@ export const CommandSelect: React.FC<CommandSelectProps> = ({
   const [open, setOpen] = useState(false);
   const selectedOption = options.find((option) => option.value === value);
 
+  const handleClose = (open: boolean) => {
+    onSearch?.("");
+    setOpen(open);
+  };
+
   return (
     <>
       <Button
@@ -49,7 +54,7 @@ export const CommandSelect: React.FC<CommandSelectProps> = ({
         <div>{selectedOption?.children ?? placeholder}</div>
         <ChevronsUpDownIcon />
       </Button>
-      <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandDialog open={open} onOpenChange={handleClose}>
         <Command shouldFilter={!onSearch}>
           {isSearchable && (
             <CommandInput placeholder="Search..." onValueChange={onSearch} />
