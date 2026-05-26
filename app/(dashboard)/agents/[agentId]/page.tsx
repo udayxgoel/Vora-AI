@@ -12,7 +12,7 @@ interface Props {
   params: Promise<{ agentId: string }>;
 }
 
-export default async function tPage({ params }: Props) {
+export default async function Page({ params }: Props) {
   const { agentId } = await params;
 
   const queryClient = getQueryClient();
