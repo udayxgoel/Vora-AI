@@ -14,6 +14,7 @@ import { toast } from "sonner";
 import { useConfirm } from "@/hooks/use-confirm";
 import { useState } from "react";
 import { UpdateMeetingDialog } from "../components/update-meeting-dialog";
+import { MeetingStatusView } from "../components/meeting-status-view";
 
 interface Props {
   meetingId: string;
@@ -55,7 +56,7 @@ export const MeetingIdView = ({ meetingId }: Props) => {
     await removeMeeting.mutateAsync({
       id: meetingId,
       name: meeting.name,
-      agentId: (meeting as any).agentId,
+      agentId: meeting.agentId,
     });
   };
 
@@ -73,6 +74,10 @@ export const MeetingIdView = ({ meetingId }: Props) => {
           meetingName={meeting.name}
           onEdit={() => setUpdateMeetingDialogOpen(true)}
           onRemove={handleRemoveMeeting}
+        />
+        <MeetingStatusView
+          status={meeting.status}
+          agentName={meeting.agent.name}
         />
       </div>
     </>
