@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { GeneratedAvatar } from "@/components/ui/generated-avatar";
 import { cn } from "@/lib/utils";
 import type { MeetingGetOne } from "../../types";
+import Link from "next/link";
 import {
   CalendarClockIcon,
   CheckCircle2Icon,
@@ -16,6 +17,7 @@ import {
 type MeetingStatus = MeetingGetOne["status"];
 
 interface Props {
+  meetingId: string;
   status: MeetingStatus;
   agentName: string;
 }
@@ -91,7 +93,7 @@ const statusConfig: Record<MeetingStatus, StatusConfig> = {
   },
 };
 
-export const MeetingStatusView = ({ status, agentName }: Props) => {
+export const MeetingStatusView = ({ meetingId, status, agentName }: Props) => {
   const config = statusConfig[status];
   const Icon = config.icon;
 
@@ -123,8 +125,8 @@ export const MeetingStatusView = ({ status, agentName }: Props) => {
             <Button variant="outline" size="sm" type="button">
               Cancel meeting
             </Button>
-            <Button size="sm" type="button">
-              Start meeting
+            <Button size="sm" asChild>
+              <Link href={`/call/${meetingId}`}>Start meeting</Link>
             </Button>
           </div>
         </div>
