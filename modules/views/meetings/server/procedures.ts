@@ -82,7 +82,7 @@ export const meetingsRouter = createTRPCRouter({
     .query(async ({ input, ctx }) => {
       const [existingMeeting] = await db
         .select({
-          meetingCount: sql<number>`5`,
+          meetingCount: db.$count(meetings, eq(agents.id, meetings.agentId)),
           ...getTableColumns(meetings),
           agent: agents,
           duration: sql<number>`EXTRACT(EPOCH FROM (ended_at - started_at))`.as(
@@ -131,7 +131,7 @@ export const meetingsRouter = createTRPCRouter({
 
       const data = await db
         .select({
-          meetingCount: sql<number>`5`,
+          meetingCount: db.$count(meetings, eq(agents.id, meetings.agentId)),
           ...getTableColumns(meetings),
           agent: agents,
           duration: sql<number>`EXTRACT(EPOCH FROM (ended_at - started_at))`.as(

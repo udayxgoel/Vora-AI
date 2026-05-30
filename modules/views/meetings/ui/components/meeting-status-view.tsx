@@ -129,9 +129,6 @@ export const MeetingStatusView = ({
             Once you start this meeting, a summary will appear here.
           </p>
           <div className="mt-3 flex flex-wrap items-center justify-center gap-3">
-            <Button variant="outline" size="sm" type="button">
-              Cancel meeting
-            </Button>
             <Button size="sm" asChild>
               <Link href={`/call/${meetingId}`}>Start meeting</Link>
             </Button>

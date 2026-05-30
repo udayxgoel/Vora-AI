@@ -153,20 +153,18 @@ export const CompletedMeetingView = ({ meeting }: Props) => {
 
       <TabsContent value="transcript">
         <section className="rounded-lg border bg-card p-6 text-card-foreground shadow-sm">
-          <h2 className="text-lg font-semibold">Transcript</h2>
-          {meeting.transcriptUrl ? (
-            <div className="mt-4 space-y-4">
-              <iframe
-                src={meeting.transcriptUrl}
-                title="Meeting transcript"
-                className="h-130 w-full rounded-md border bg-background"
-              />
+          <div className="flex min-h-80 flex-col items-center justify-center text-center">
+            <div className="grid size-12 place-items-center rounded-full bg-primary/10 text-primary">
+              <ScrollTextIcon className="size-6" />
             </div>
-          ) : (
-            <p className="mt-3 text-sm text-muted-foreground">
-              No transcript available yet.
-            </p>
-          )}
+            <div className="mt-4 max-w-md space-y-2">
+              <h2 className="text-lg font-semibold">Transcript unavailable</h2>
+              <p className="text-sm leading-6 text-muted-foreground">
+                The transcript cannot be displayed right now because AI
+                processing or transcription credits are reached.
+              </p>
+            </div>
+          </div>
         </section>
       </TabsContent>
 
