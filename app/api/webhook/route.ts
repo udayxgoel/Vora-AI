@@ -1,8 +1,8 @@
 import {
-  // CallEndedEvent,
-  // CallTranscriptionReadyEvent,
+  CallEndedEvent,
+  CallTranscriptionReadyEvent,
   CallSessionParticipantLeftEvent,
-  // CallRecordingReadyEvent,
+  CallRecordingReadyEvent,
   CallSessionStartedEvent,
 } from "@stream-io/node-sdk";
 import { and, eq, not } from "drizzle-orm";
@@ -10,6 +10,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/db";
 import { agents, meetings } from "@/db/schema";
 import { streamClient } from "@/lib/stream-video";
+import { inngest } from "@/inngest/client";
 
 function verifySignatureWebhook(body: string, signature: string): boolean {
   return streamClient.verifyWebhook(body, signature);
@@ -114,6 +115,59 @@ export async function POST(req: NextRequest) {
 
     const call = streamClient.video.call("default", meetingId);
     await call.end();
+  } else if (eventType === "call.session_ended") {
+    const event = payload as CallEndedEvent;
+    const meetingId = event.call.custom?.meetingId;
+
+    if (!meetingId) {
+      return NextResponse.json(
+        { error: "Missing meeting ID" },
+        { status: 400 },
+      );
+    }
+
+    await db
+      .update(meetings)
+      .set({ status: "processing", endedAt: new Date() })
+      .where(and(eq(meetings.id, meetingId), eq(meetings.status, "active")));
+  } else if (eventType === "call.transcription_ready") {
+    const event = payload as CallTranscriptionReadyEvent;
+    const meetingId = event.call_cid.split(":")[1];
+
+    const [updatedMeeting] = await db
+      .update(meetings)
+      .set({ transscriptUrl: event.call_transcription.url })
+      .where(eq(meetings.id, meetingId))
+      .returning();
+
+    if (!updatedMeeting) {
+      return NextResponse.json({ error: "Meeting not found" }, { status: 404 });
+    }
+  } else if (eventType === "call.recording_ready") {
+    const event = payload as CallRecordingReadyEvent;
+    const meetingId = event.call_cid.split(":")[1];
+
+    const [updatedMeeting] = await db
+      .update(meetings)
+      .set({ recordingurl: JSON.stringify(event.call_recording) })
+      .where(eq(meetings.id, meetingId))
+      .returning();
+
+    if (!updatedMeeting) {
+      return NextResponse.json({ error: "Meeting not found" }, { status: 404 });
+    }
+
+    if (!updatedMeeting.transscriptUrl) {
+      return NextResponse.json({ status: "ok" });
+    }
+
+    await inngest.send({
+      name: "meeting/processing",
+      data: {
+        meetingId: updatedMeeting.id,
+        transcriptUrl: updatedMeeting.transscriptUrl,
+      },
+    });
   }
 
   return NextResponse.json({ status: "ok" });
