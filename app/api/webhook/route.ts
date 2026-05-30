@@ -136,7 +136,7 @@ export async function POST(req: NextRequest) {
 
     const [updatedMeeting] = await db
       .update(meetings)
-      .set({ transscriptUrl: event.call_transcription.url })
+      .set({ transcriptUrl: event.call_transcription.url })
       .where(eq(meetings.id, meetingId))
       .returning();
 
@@ -157,7 +157,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Meeting not found" }, { status: 404 });
     }
 
-    if (!updatedMeeting.transscriptUrl) {
+    if (!updatedMeeting.transcriptUrl) {
       return NextResponse.json({ status: "ok" });
     }
 
@@ -165,7 +165,7 @@ export async function POST(req: NextRequest) {
       name: "meeting/processing",
       data: {
         meetingId: updatedMeeting.id,
-        transcriptUrl: updatedMeeting.transscriptUrl,
+        transcriptUrl: updatedMeeting.transcriptUrl,
       },
     });
   }

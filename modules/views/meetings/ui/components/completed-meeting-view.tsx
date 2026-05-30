@@ -154,10 +154,10 @@ export const CompletedMeetingView = ({ meeting }: Props) => {
       <TabsContent value="transcript">
         <section className="rounded-lg border bg-card p-6 text-card-foreground shadow-sm">
           <h2 className="text-lg font-semibold">Transcript</h2>
-          {meeting.transscriptUrl ? (
+          {meeting.transcriptUrl ? (
             <div className="mt-4 space-y-4">
               <iframe
-                src={meeting.transscriptUrl}
+                src={meeting.transcriptUrl}
                 title="Meeting transcript"
                 className="h-130 w-full rounded-md border bg-background"
               />

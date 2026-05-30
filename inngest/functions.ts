@@ -52,7 +52,7 @@ export const meetingProcessing = inngest.createFunction(
       return JSONL.parse<StreamTranscriptItem>(text);
     });
 
-    const transscriptWithSpeakers = await step.run("add-speakers", async () => {
+    const transcriptWithSpeakers = await step.run("add-speakers", async () => {
       const speakerIds = [
         ...new Set(transcript.map((item) => item.speaker_id)),
       ];
@@ -105,7 +105,7 @@ export const meetingProcessing = inngest.createFunction(
     try {
       const { output } = await summarizer.run(
         "Summarize the folowing transcript" +
-          JSON.stringify(transscriptWithSpeakers),
+          JSON.stringify(transcriptWithSpeakers),
       );
       summary = (output[0] as TextMessage).content as string;
     } catch {

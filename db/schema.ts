@@ -115,7 +115,7 @@ export const meetings = pgTable("meetings", {
   status: meetingStatus("status").default("upcoming").notNull(),
   startedAt: timestamp("started_at"),
   endedAt: timestamp("ended_at"),
-  transscriptUrl: text("transscript_url"),
+  transcriptUrl: text("transcript_url"),
   recordingurl: text("recording_url"),
   summary: text("summary"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
