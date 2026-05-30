@@ -13,16 +13,7 @@ import {
   LoaderIcon,
 } from "lucide-react";
 import { format } from "date-fns";
-import { cn } from "@/lib/utils";
-const humanizeDuration = require("humanize-duration");
-
-function formatDuration(seconds: number) {
-  return humanizeDuration(seconds * 1000, {
-    largest: 1,
-    round: true,
-    units: ["h", "m", "s"],
-  });
-}
+import { cn, formatDuration } from "@/lib/utils";
 
 const statusMap = {
   completed: {

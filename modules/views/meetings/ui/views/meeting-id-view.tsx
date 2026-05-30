@@ -79,6 +79,7 @@ export const MeetingIdView = ({ meetingId }: Props) => {
           meetingId={meeting.id}
           status={meeting.status}
           agentName={meeting.agent.name}
+          meeting={meeting}
         />
       </div>
     </>

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { GeneratedAvatar } from "@/components/ui/generated-avatar";
 import { cn } from "@/lib/utils";
 import type { MeetingGetOne } from "../../types";
+import { CompletedMeetingView } from "./completed-meeting-view";
 import Link from "next/link";
 import {
   CalendarClockIcon,
@@ -20,6 +21,7 @@ interface Props {
   meetingId: string;
   status: MeetingStatus;
   agentName: string;
+  meeting?: MeetingGetOne;
 }
 
 interface StatusConfig {
@@ -93,7 +95,12 @@ const statusConfig: Record<MeetingStatus, StatusConfig> = {
   },
 };
 
-export const MeetingStatusView = ({ meetingId, status, agentName }: Props) => {
+export const MeetingStatusView = ({
+  meetingId,
+  status,
+  agentName,
+  meeting,
+}: Props) => {
   const config = statusConfig[status];
   const Icon = config.icon;
 
@@ -132,6 +139,10 @@ export const MeetingStatusView = ({ meetingId, status, agentName }: Props) => {
         </div>
       </section>
     );
+  }
+
+  if (status === "completed" && meeting) {
+    return <CompletedMeetingView meeting={meeting} />;
   }
 
   return (
@@ -197,7 +208,7 @@ export const MeetingStatusView = ({ meetingId, status, agentName }: Props) => {
             config.pulse && "animate-pulse",
           )}
         />
-        <div className="absolute bottom-18 left-1/2 grid size-20 -translate-x-1/2 place-items-center rounded-full bg-card shadow-[0_18px_40px_rgba(15,23,42,0.14)]">
+        <div className="absolute bottom-20 left-1/2 grid size-20 -translate-x-1/2 place-items-center rounded-full bg-card shadow-[0_18px_40px_rgba(15,23,42,0.14)]">
           <Icon
             className={cn(
               "size-9",
