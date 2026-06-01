@@ -126,23 +126,6 @@ export function DashboardSidebar({ user }: DashboardSidebarProps) {
                 );
               })}
             </SidebarMenu>
-
-            <Separator className="my-3" />
-
-            <SidebarMenu className="gap-1">
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  tooltip={"Upgrade"}
-                  className="h-10 rounded-md text-[#344054] data-active:bg-[#dff5fd] data-active:text-[#023e8a] data-active:shadow-none"
-                >
-                  <Link href={"/upgrade"}>
-                    <Star />
-                    <span>Upgrade</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
