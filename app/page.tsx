@@ -1,16 +1,16 @@
-import HomeView from "@/modules/views/home/ui/home-view";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { LandingView } from "@/modules/views/landing/ui/landing-view";
 
 export default async function Page() {
-
   const session = await auth.api.getSession({
-    headers:await headers(),
+    headers: await headers(),
   });
 
-  if(!session) {  redirect("/login") }
+  if (session) {
+    redirect("/meetings");
+  }
 
-  return <HomeView/>
-  
+  return <LandingView />;
 }

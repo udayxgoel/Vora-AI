@@ -8,7 +8,6 @@ import {
   ChevronsUpDownIcon,
   LogOutIcon,
   SparklesIcon,
-  Star,
 } from "lucide-react";
 
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
@@ -86,7 +85,7 @@ export function DashboardSidebar({ user }: DashboardSidebarProps) {
     <Sidebar collapsible="icon" className="border-sidebar-border bg-sidebar">
       <SidebarHeader className="py-4">
         <Link
-          href="/"
+          href="/meetings"
           className="flex h-7.0 items-center gap-3 rounded-md text-sidebar-foreground"
         >
           <span className="grid size-8 shrink-0 place-items-center rounded-md bg-[#0077b6] text-white shadow-sm">
