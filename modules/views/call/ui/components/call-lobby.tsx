@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { authClient } from "@/lib/auth-client";
 import { generateAvatarUri } from "@/lib/avatar";
 import Link from "next/link";
+import { AiCreditsNotice } from "./ai-credits-notice";
 
 interface Props {
   onJoin: () => void;
@@ -56,6 +57,7 @@ export const CallLobby = ({ onJoin }: Props) => {
     <div className="flex min-h-screen w-full items-center justify-center bg-black px-4 py-8">
       <div className="flex w-full items-center justify-center">
         <div className="flex flex-col items-center justify-center gap-y-6 bg-background rounded-lg p-10 shadow-sm">
+          <AiCreditsNotice />
           <div className="flex flex-col gap-y-2 text-center">
             <h6 className="text-lg font-semibold">Ready to join?</h6>
             <p className="text-sm text-muted-foreground">
