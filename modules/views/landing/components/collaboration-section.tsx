@@ -2,11 +2,21 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { SearchIcon, BotIcon, CalendarDaysIcon, QuoteIcon, TagIcon, SparklesIcon } from "lucide-react";
+import {
+  SearchIcon,
+  BotIcon,
+  CalendarDaysIcon,
+  QuoteIcon,
+  TagIcon,
+  SparklesIcon,
+} from "lucide-react";
 
 export function CollaborationSection() {
   return (
-    <section id="agents-demo" className="py-20 sm:py-24 bg-white border-t border-[#d9e8f2] relative overflow-hidden">
+    <section
+      id="agents-demo"
+      className="py-20 sm:py-24 bg-white border-t border-[#d9e8f2] relative overflow-hidden"
+    >
       {/* Grid lines background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#d9e8f2_1px,transparent_1px),linear-gradient(to_bottom,#d9e8f2_1px,transparent_1px)] bg-[size:5rem_5rem] opacity-20" />
 
@@ -16,23 +26,61 @@ export function CollaborationSection() {
             A Unified Knowledge Base for All Meetings
           </h2>
           <p className="mt-4 text-base text-[#667085]">
-            Stop digging through hours of audio. Query the entire history of your team's meetings, agents, and transcripts through one intelligent search bar.
+            Stop digging through hours of audio. Query the entire history of
+            your team&apos;s meetings, agents, and transcripts through one
+            intelligent search bar.
           </p>
         </div>
 
         {/* Network diagram illustration container */}
-        <div className="relative max-w-4xl mx-auto h-[380px] sm:h-[450px] bg-[#f5fbff] rounded-[8px] border border-[#d9e8f2] shadow-sm flex items-center justify-center overflow-hidden p-4">
-          
+        <div className="relative max-w-4xl mx-auto h-95 sm:h-112.5 bg-[#f5fbff] rounded-[8px] border border-[#d9e8f2] shadow-sm flex items-center justify-center overflow-hidden p-4">
           {/* SVG Connector lines */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+          >
             {/* Top Left Connection */}
-            <path d="M 120 100 Q 220 120 400 210" stroke="#0077b6" strokeWidth="1.5" strokeDasharray="5,5" fill="none" className="animate-[network-flow_15s_linear_infinite]" />
+            <path
+              d="M 28 17 Q 38 34 50 48"
+              stroke="#0077b6"
+              strokeWidth="1.5"
+              strokeDasharray="5,5"
+              vectorEffect="non-scaling-stroke"
+              fill="none"
+              className="animate-[network-flow_15s_linear_infinite]"
+            />
             {/* Top Right Connection */}
-            <path d="M 720 100 Q 620 120 450 210" stroke="#0077b6" strokeWidth="1.5" strokeDasharray="5,5" fill="none" className="animate-[network-flow_15s_linear_infinite]" />
+            <path
+              d="M 72 17 Q 62 34 50 48"
+              stroke="#0077b6"
+              strokeWidth="1.5"
+              strokeDasharray="5,5"
+              vectorEffect="non-scaling-stroke"
+              fill="none"
+              className="animate-[network-flow_15s_linear_infinite]"
+            />
             {/* Bottom Left Connection */}
-            <path d="M 140 350 Q 240 330 400 240" stroke="#0077b6" strokeWidth="1.5" strokeDasharray="5,5" fill="none" className="animate-[network-flow_15s_linear_infinite]" />
+            <path
+              d="M 28 84 Q 39 66 50 52"
+              stroke="#0077b6"
+              strokeWidth="1.5"
+              strokeDasharray="5,5"
+              vectorEffect="non-scaling-stroke"
+              fill="none"
+              className="animate-[network-flow_15s_linear_infinite]"
+            />
             {/* Bottom Right Connection */}
-            <path d="M 700 350 Q 600 330 450 240" stroke="#0077b6" strokeWidth="1.5" strokeDasharray="5,5" fill="none" className="animate-[network-flow_15s_linear_infinite]" />
+            <path
+              d="M 72 84 Q 61 66 50 52"
+              stroke="#0077b6"
+              strokeWidth="1.5"
+              strokeDasharray="5,5"
+              vectorEffect="non-scaling-stroke"
+              fill="none"
+              className="animate-[network-flow_15s_linear_infinite]"
+            />
           </svg>
 
           {/* Connected Nodes */}
@@ -62,8 +110,12 @@ export function CollaborationSection() {
               <BotIcon className="size-3.5" />
             </span>
             <div className="min-w-0">
-              <h4 className="text-[10px] font-bold text-[#0f172a] truncate">Archy Architect</h4>
-              <p className="text-[8px] text-[#667085] truncate">System Design Agent</p>
+              <h4 className="text-[10px] font-bold text-[#0f172a] truncate">
+                Archy Architect
+              </h4>
+              <p className="text-[8px] text-[#667085] truncate">
+                System Design Agent
+              </p>
             </div>
           </div>
 
@@ -73,8 +125,12 @@ export function CollaborationSection() {
               <CalendarDaysIcon className="size-3.5" />
             </span>
             <div className="min-w-0">
-              <h4 className="text-[10px] font-bold text-[#0f172a] truncate">Q3 Marketing Sync</h4>
-              <p className="text-[8px] text-[#667085] truncate">Held 2 hours ago</p>
+              <h4 className="text-[10px] font-bold text-[#0f172a] truncate">
+                Q3 Marketing Sync
+              </h4>
+              <p className="text-[8px] text-[#667085] truncate">
+                Held 2 hours ago
+              </p>
             </div>
           </div>
 
@@ -82,10 +138,13 @@ export function CollaborationSection() {
           <div className="absolute bottom-8 left-4 sm:left-8 max-w-[190px] bg-white rounded-md border border-[#d9e8f2] p-2.5 shadow-sm">
             <div className="flex items-center gap-1 mb-1">
               <QuoteIcon className="size-2.5 text-[#00a6d6]" />
-              <span className="text-[8px] font-bold text-[#0f172a]">Sarah A. in API Review</span>
+              <span className="text-[8px] font-bold text-[#0f172a]">
+                Sarah A. in API Review
+              </span>
             </div>
             <p className="text-[9px] text-[#667085] leading-snug italic">
-              "...we should migration path schemas via Drizzle by next Monday..."
+              &quot;...we should migration path schemas via Drizzle by next
+              Monday...&quot;
             </p>
           </div>
 
@@ -95,11 +154,14 @@ export function CollaborationSection() {
               <TagIcon className="size-3.5" />
             </span>
             <div className="min-w-0">
-              <h4 className="text-[10px] font-bold text-[#0f172a] truncate">#architecture-decision</h4>
-              <p className="text-[8px] text-[#667085] truncate">18 matching moments</p>
+              <h4 className="text-[10px] font-bold text-[#0f172a] truncate">
+                #architecture-decision
+              </h4>
+              <p className="text-[8px] text-[#667085] truncate">
+                18 matching moments
+              </p>
             </div>
           </div>
-
         </div>
 
         <div className="mt-12 text-center">

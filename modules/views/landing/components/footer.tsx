@@ -31,7 +31,6 @@ export function Footer() {
     <footer className="bg-[#f5fbff] border-t border-[#d9e8f2] pt-16 pb-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-12">
-
           {/* Logo & description (spans 5 cols) */}
           <div className="md:col-span-5 space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
@@ -43,7 +42,9 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-xs text-[#667085] leading-relaxed max-w-sm">
-              Vora AI builds custom AI-powered meeting agents that join, record, transcribe, and extract actionable summaries from your video conversations.
+              Vora AI builds custom AI-powered meeting agents that join, record,
+              transcribe, and extract actionable summaries from your video
+              conversations.
             </p>
           </div>
 
@@ -56,7 +57,10 @@ export function Footer() {
               <ul className="space-y-2.5 text-xs text-[#667085]">
                 {footerLinks.product.map((link) => (
                   <li key={link.name}>
-                    <a href={link.href} className="hover:text-[#0077b6] transition-colors">
+                    <a
+                      href={link.href}
+                      className="hover:text-[#0077b6] transition-colors"
+                    >
                       {link.name}
                     </a>
                   </li>
@@ -71,7 +75,10 @@ export function Footer() {
               <ul className="space-y-2.5 text-xs text-[#667085]">
                 {footerLinks.resources.map((link) => (
                   <li key={link.name}>
-                    <a href={link.href} className="hover:text-[#0077b6] transition-colors">
+                    <a
+                      href={link.href}
+                      className="hover:text-[#0077b6] transition-colors"
+                    >
                       {link.name}
                     </a>
                   </li>
@@ -86,7 +93,10 @@ export function Footer() {
               <ul className="space-y-2.5 text-xs text-[#667085]">
                 {footerLinks.legal.map((link) => (
                   <li key={link.name}>
-                    <a href={link.href} className="hover:text-[#0077b6] transition-colors">
+                    <a
+                      href={link.href}
+                      className="hover:text-[#0077b6] transition-colors"
+                    >
                       {link.name}
                     </a>
                   </li>
@@ -94,18 +104,29 @@ export function Footer() {
               </ul>
             </div>
           </div>
-
         </div>
 
         {/* Divider */}
         <div className="border-t border-[#d9e8f2] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[10px] text-[#667085] font-semibold">
-            &copy; {currentYear} Vora AI, Inc. All rights reserved. Made with love for modern teams.
-          </p>
+          <div className="flex flex-col items-center md:items-start">
+            <p className="text-[10px] text-[#667085] font-semibold">
+              &copy; {currentYear} Vora AI, Inc. All rights reserved.
+            </p>
+
+            <p className="text-[10px] text-[#667085] font-semibold">
+              Made with <span className="text-red-500">&#10084;</span>
+            </p>
+          </div>
           <div className="flex gap-4 text-[10px] text-[#667085] font-semibold">
-            <a href="#" className="hover:text-[#0077b6] transition-colors">Twitter</a>
-            <a href="#" className="hover:text-[#0077b6] transition-colors">GitHub</a>
-            <a href="#" className="hover:text-[#0077b6] transition-colors">LinkedIn</a>
+            <a href="#" className="hover:text-[#0077b6] transition-colors">
+              Twitter
+            </a>
+            <a href="#" className="hover:text-[#0077b6] transition-colors">
+              GitHub
+            </a>
+            <a href="#" className="hover:text-[#0077b6] transition-colors">
+              LinkedIn
+            </a>
           </div>
         </div>
       </div>

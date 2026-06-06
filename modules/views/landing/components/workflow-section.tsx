@@ -1,49 +1,62 @@
 "use client";
 
-import { BotIcon, CalendarPlusIcon, HeadphonesIcon, FileSpreadsheetIcon, ArrowRightIcon } from "lucide-react";
+import {
+  BotIcon,
+  CalendarPlusIcon,
+  HeadphonesIcon,
+  FileSpreadsheetIcon,
+  ArrowRightIcon,
+} from "lucide-react";
 
 export function WorkflowSection() {
   const steps = [
     {
       num: "01",
       title: "Create Agent",
-      description: "Define custom instructions or choose a template for your meeting agent.",
+      description:
+        "Define custom instructions or choose a template for your meeting agent.",
       icon: BotIcon,
       bgColor: "#e8f5fc",
       textColor: "#0077b6",
-      accentBg: "#dff5fd"
+      accentBg: "#dff5fd",
     },
     {
       num: "02",
       title: "Join Call",
-      description: "Send your Vora Bridge link or add vora@vora.ai to your calendar invite.",
+      description:
+        "Send your Vora Bridge link or add vora@vora.ai to your calendar invite.",
       icon: CalendarPlusIcon,
       bgColor: "#dff5fd",
       textColor: "#023e8a",
-      accentBg: "#e8f5fc"
+      accentBg: "#e8f5fc",
     },
     {
       num: "03",
       title: "Record & Transcribe",
-      description: "Vora records the call, highlighting key speakers and transcripts live.",
+      description:
+        "Vora records the call, highlighting key speakers and transcripts live.",
       icon: HeadphonesIcon,
       bgColor: "#f1f7fb",
       textColor: "#00a6d6",
-      accentBg: "#dff5fd"
+      accentBg: "#dff5fd",
     },
     {
       num: "04",
       title: "Generate Summary",
-      description: "Get structured action items, decisions, and summaries in minutes.",
+      description:
+        "Get structured action items, decisions, and summaries in minutes.",
       icon: FileSpreadsheetIcon,
-      bgColor: "#e8f5fc",
+      bgColor: "#dff5fd",
       textColor: "#023e8a",
-      accentBg: "#f1f7fb"
-    }
+      accentBg: "#e8f5fc",
+    },
   ];
 
   return (
-    <section id="how-it-works" className="py-20 sm:py-24 bg-white border-t border-[#d9e8f2] relative overflow-hidden">
+    <section
+      id="how-it-works"
+      className="py-20 sm:py-24 bg-white border-t border-[#d9e8f2] relative overflow-hidden"
+    >
       {/* Wave decoration in background */}
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#f5fbff] to-transparent opacity-50" />
 
@@ -53,21 +66,25 @@ export function WorkflowSection() {
             How Vora AI Fits Into Your Workflow
           </h2>
           <p className="mt-4 text-base text-[#667085]">
-            From pre-meeting configuration to post-meeting summary delivery, Vora AI automates the entire documentation lifecycle.
+            From pre-meeting configuration to post-meeting summary delivery,
+            Vora AI automates the entire documentation lifecycle.
           </p>
         </div>
 
         {/* Desktop Steps Grid */}
-        <div className="relative">
-          {/* Animated Connecting dashed line (visible on lg screens) */}
+        <div className="relative group/workflow">
+          {/* Animated connecting dashed line (visible on lg screens) */}
           <div className="absolute top-1/2 left-[12.5%] right-[12.5%] -translate-y-8 h-0.5 hidden lg:block">
             <svg className="w-full h-2 overflow-visible" fill="none">
-              <path
-                d="M 0 4 H 600"
+              <line
+                x1="0"
+                y1="4"
+                x2="100%"
+                y2="4"
                 stroke="#d9e8f2"
                 strokeWidth="2.5"
                 strokeDasharray="8,8"
-                className="animate-[dash_20s_linear_infinite]"
+                className="animate-[dash_20s_linear_infinite] group-hover/workflow:[animation-play-state:paused]"
               />
             </svg>
           </div>
@@ -90,7 +107,10 @@ export function WorkflowSection() {
                     style={{ backgroundColor: step.accentBg }}
                     className="flex size-14 items-center justify-center rounded-full border border-[#d9e8f2] text-[#0077b6] mb-5 shadow-sm transition-transform duration-300 group-hover:scale-110"
                   >
-                    <Icon className="size-6" style={{ color: step.textColor }} />
+                    <Icon
+                      className="size-6"
+                      style={{ color: step.textColor }}
+                    />
                   </div>
 
                   {/* Step Title */}
@@ -111,7 +131,6 @@ export function WorkflowSection() {
           </div>
         </div>
 
-        {/* Global CSS Keyframes rule injected directly inside a style tag for the dashed animation */}
         <style jsx global>{`
           @keyframes dash {
             to {

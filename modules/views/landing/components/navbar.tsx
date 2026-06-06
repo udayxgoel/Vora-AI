@@ -24,6 +24,25 @@ export function Navbar() {
     { name: "Agents", href: "#agents-demo" },
   ];
 
+  const handleNavClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    event.preventDefault();
+    setIsMobileMenuOpen(false);
+
+    const target = document.querySelector(href);
+    if (!target) {
+      return;
+    }
+
+    const headerOffset = 80;
+    const targetTop =
+      target.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+    window.scrollTo({ top: targetTop, behavior: "smooth" });
+  };
+
   return (
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled
@@ -48,6 +67,7 @@ export function Navbar() {
             <a
               key={link.name}
               href={link.href}
+              onClick={(event) => handleNavClick(event, link.href)}
               className="text-sm font-medium text-[#667085] transition-colors hover:text-[#0077b6]"
             >
               {link.name}
@@ -94,7 +114,7 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(event) => handleNavClick(event, link.href)}
                 className="text-sm font-medium text-[#667085] hover:text-[#0077b6] py-1"
               >
                 {link.name}
