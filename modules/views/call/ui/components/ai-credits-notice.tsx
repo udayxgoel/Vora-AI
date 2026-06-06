@@ -7,8 +7,8 @@ export const AiCreditsNotice = () => {
       <SparklesIcon className="size-4" />
       <AlertTitle>AI assistant is limited</AlertTitle>
       <AlertDescription className="text-[#023e8a]/80">
-        AI credits are currently exhausted, so the live AI agent will not
-        respond during this demo. Video calling still works normally.
+        AI credits are currently exhausted, so the live AI agent will not join
+        during this call. Video calling still works normally.
       </AlertDescription>
     </Alert>
   );

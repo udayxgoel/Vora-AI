@@ -24,10 +24,7 @@ export function AuthShell({
       <section className="mx-auto grid min-h-[calc(100vh-2rem)] w-full max-w-6xl overflow-hidden rounded-3xl bg-white shadow-[0_24px_80px_rgba(2,62,138,0.12)] lg:h-full lg:min-h-0 lg:grid-cols-2">
         <div className="flex min-h-0 items-center justify-center px-6 py-6 sm:px-10 lg:overflow-y-auto lg:px-16">
           <div className="w-full max-w-sm">
-            <Link
-              href="/"
-              className="mb-6 flex items-center justify-center gap-2.5 lg:hidden"
-            >
+            <Link href="/" className="mb-6 flex items-center gap-2.5 lg:hidden">
               <span className="grid size-8 place-items-center rounded-md bg-[#0077b6] text-white shadow-sm">
                 <SparklesIcon className="size-5" />
               </span>
