@@ -56,7 +56,7 @@ export const CallLobby = ({ onJoin }: Props) => {
   return (
     <div className="flex min-h-screen w-full items-center justify-center bg-black px-4 py-8">
       <div className="flex w-full items-center justify-center">
-        <div className="flex w-full max-w-md flex-col items-center justify-center gap-y-5 rounded-lg bg-background p-5 shadow-sm sm:p-10">
+        <div className="flex w-full max-w-md flex-col items-center justify-center gap-y-5 rounded-lg bg-background p-5 shadow-sm sm:w-auto sm:max-w-none sm:gap-y-6 sm:p-10">
           <AiCreditsNotice />
           <div className="flex flex-col gap-y-2 text-center">
             <h6 className="text-lg font-semibold">Ready to join?</h6>
@@ -65,7 +65,7 @@ export const CallLobby = ({ onJoin }: Props) => {
               call.
             </p>
           </div>
-          <div className="w-full max-w-sm overflow-hidden rounded-md [&_*]:max-w-full">
+          <div className="w-full max-w-sm overflow-hidden rounded-md sm:w-auto sm:max-w-none [&_*]:max-w-full">
             <VideoPreview
               DisabledVideoPreview={
                 hasBrowserPermissions
@@ -78,7 +78,7 @@ export const CallLobby = ({ onJoin }: Props) => {
             <ToggleAudioPreviewButton />
             <ToggleVideoPreviewButton />
           </div>
-          <div className="flex w-full flex-col gap-2 sm:flex-row sm:justify-between">
+          <div className="flex w-full flex-col gap-2 sm:flex-row sm:justify-between sm:gap-x-2">
             <Button variant="outline" className="w-full sm:w-auto" asChild>
               <Link href="/meetings">Cancel</Link>
             </Button>
