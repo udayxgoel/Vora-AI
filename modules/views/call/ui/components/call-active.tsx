@@ -10,24 +10,28 @@ interface Props {
 
 export const CallActive = ({ onLeave, meetingName }: Props) => {
   return (
-    <div className="flex h-full flex-col justify-between p-4 text-white">
-      <div className="bg-[#101213] rounded-full p-4 flex items-center gap-4">
+    <div className="flex h-full min-h-0 flex-col gap-3 p-2 text-white sm:p-4">
+      <div className="flex items-center gap-3 rounded-lg bg-[#101213] p-3 sm:rounded-full sm:p-4">
         <Link
           href="/"
-          className="flex items-center gap-2 rounded-full bg-white/10 px-2.5 py-1.5"
+          className="flex shrink-0 items-center gap-2 rounded-full bg-white/10 px-2.5 py-1.5"
         >
           <span className="grid size-7 place-items-center rounded-full bg-[#0077b6] text-white">
             <SparklesIcon className="size-4" />
           </span>
-          <span className="text-sm font-semibold">Vora AI</span>
+          <span className="hidden text-sm font-semibold sm:inline">
+            Vora AI
+          </span>
         </Link>
-        <h4 className="text-base">{meetingName}</h4>
+        <h4 className="min-w-0 truncate text-sm sm:text-base">{meetingName}</h4>
       </div>
       <div className="mx-auto w-full max-w-2xl">
         <AiCreditsNotice />
       </div>
-      <SpeakerLayout />
-      <div className="bg-[#101213] rounded-full px-4">
+      <div className="min-h-0 flex-1 overflow-hidden rounded-lg">
+        <SpeakerLayout />
+      </div>
+      <div className="overflow-x-auto rounded-lg bg-[#101213] px-2 sm:rounded-full sm:px-4">
         <CallControls onLeave={onLeave} />
       </div>
     </div>

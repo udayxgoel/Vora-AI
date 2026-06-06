@@ -56,7 +56,7 @@ export const CallLobby = ({ onJoin }: Props) => {
   return (
     <div className="flex min-h-screen w-full items-center justify-center bg-black px-4 py-8">
       <div className="flex w-full items-center justify-center">
-        <div className="flex flex-col items-center justify-center gap-y-6 bg-background rounded-lg p-10 shadow-sm">
+        <div className="flex w-full max-w-md flex-col items-center justify-center gap-y-5 rounded-lg bg-background p-5 shadow-sm sm:p-10">
           <AiCreditsNotice />
           <div className="flex flex-col gap-y-2 text-center">
             <h6 className="text-lg font-semibold">Ready to join?</h6>
@@ -65,22 +65,28 @@ export const CallLobby = ({ onJoin }: Props) => {
               call.
             </p>
           </div>
-          <VideoPreview
-            DisabledVideoPreview={
-              hasBrowserPermissions
-                ? disabledVideoPreview
-                : allowBrowserPermissions
-            }
-          />
-          <div className="flex gap-x-2">
+          <div className="w-full max-w-sm overflow-hidden rounded-md [&_*]:max-w-full">
+            <VideoPreview
+              DisabledVideoPreview={
+                hasBrowserPermissions
+                  ? disabledVideoPreview
+                  : allowBrowserPermissions
+              }
+            />
+          </div>
+          <div className="flex flex-wrap justify-center gap-2">
             <ToggleAudioPreviewButton />
             <ToggleVideoPreviewButton />
           </div>
-          <div className="flex gap-x-2 justify-between w-full">
-            <Button variant="outline" asChild>
+          <div className="flex w-full flex-col gap-2 sm:flex-row sm:justify-between">
+            <Button variant="outline" className="w-full sm:w-auto" asChild>
               <Link href="/meetings">Cancel</Link>
             </Button>
-            <Button disabled={!hasBrowserPermissions} onClick={onJoin}>
+            <Button
+              disabled={!hasBrowserPermissions}
+              onClick={onJoin}
+              className="w-full sm:w-auto"
+            >
               <LogInIcon />
               Join call
             </Button>
