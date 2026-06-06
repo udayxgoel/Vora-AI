@@ -59,7 +59,7 @@ export const CommandSelect: React.FC<CommandSelectProps> = ({
           {isSearchable && (
             <CommandInput placeholder="Search..." onValueChange={onSearch} />
           )}
-          <CommandList>
+          <CommandList className="p-1">
             <CommandEmpty className="text-muted-foreground text-sm">
               No options found.
             </CommandEmpty>
@@ -67,6 +67,7 @@ export const CommandSelect: React.FC<CommandSelectProps> = ({
               <CommandItem
                 key={option.id}
                 value={option.value}
+                className="min-h-10"
                 onSelect={(currentValue) => {
                   onSelect(currentValue);
                   setOpen(false);

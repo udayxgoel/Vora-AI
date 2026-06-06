@@ -34,6 +34,7 @@ export const AgentIdFilter = () => {
                 seed={agent.name}
                 className="size-4"
               />
+              <span className="truncate">{agent.name}</span>
             </div>
           ),
         })) ?? []
