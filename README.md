@@ -32,17 +32,17 @@ The project includes:
 
 ## Tech Stack
 
-- **Next.js 16**: App Router, server components, and API routes
-- **React 19**: UI rendering
+- **Next.js**: App Router, server components, and API routes
+- **React.js**: UI rendering
 - **TypeScript**: Type-safe application code
-- **Tailwind CSS**: Utility-first styling
-- **Shadcn UI / Radix UI**: Reusable UI primitives
+- **Tailwind**: Utility-first styling
+- **Shadcn UI**: Reusable UI primitives
 - **tRPC**: End-to-end typed API layer
 - **TanStack Query**: Client data fetching and cache management
-- **Drizzle ORM**: Database schema and queries
-- **Neon PostgreSQL**: Serverless Postgres database
+- **Drizzle**: Database schema and queries
+- **Neon DB**: Serverless Postgres database
 - **Better Auth**: Authentication and session management
-- **Stream Video**: Video calling, recordings, transcriptions, and webhooks
+- **Stream**: Video calling, recordings, transcriptions, and webhooks
 - **Inngest**: Background jobs and async meeting processing
 - **Inngest Agent Kit**: AI summary workflow integration
 - **DiceBear**: Generated avatars for users and agents
@@ -105,8 +105,6 @@ The project includes:
    NEXT_PUBLIC_APP_URL=http://localhost:3000
 
    OPENAI_API_KEY=optional_openai_key
-   NEXT_PUBLIC_OPENAI_API_KEY=optional_openai_key
-   NEXT_PUBLIC_GEMINI_API_KEY=optional_gemini_key
    ```
 
 4. **Push database schema**
