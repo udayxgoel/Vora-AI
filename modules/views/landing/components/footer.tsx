@@ -118,13 +118,22 @@ export function Footer() {
             </p>
           </div>
           <div className="flex gap-4 text-[10px] text-[#667085] font-semibold">
-            <a href="#" className="hover:text-[#0077b6] transition-colors">
+            <a
+              href="https://x.com/udayxgoel"
+              className="hover:text-[#0077b6] transition-colors"
+            >
               Twitter
             </a>
-            <a href="#" className="hover:text-[#0077b6] transition-colors">
+            <a
+              href="https://github.com/udayxgoel"
+              className="hover:text-[#0077b6] transition-colors"
+            >
               GitHub
             </a>
-            <a href="#" className="hover:text-[#0077b6] transition-colors">
+            <a
+              href="https://www.linkedin.com/in/udayxgoel"
+              className="hover:text-[#0077b6] transition-colors"
+            >
               LinkedIn
             </a>
           </div>

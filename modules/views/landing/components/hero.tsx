@@ -2,7 +2,16 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { PlayIcon, VideoIcon, MicIcon, MicOffIcon, MessageSquareIcon, SparklesIcon, FileTextIcon, ListTodoIcon } from "lucide-react";
+import {
+  PlayIcon,
+  VideoIcon,
+  MicIcon,
+  MicOffIcon,
+  MessageSquareIcon,
+  SparklesIcon,
+  FileTextIcon,
+  ListTodoIcon,
+} from "lucide-react";
 
 export function Hero() {
   return (
@@ -14,21 +23,34 @@ export function Hero() {
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-[#dff5fd] px-3.5 py-1 text-xs font-semibold text-[#023e8a] mb-5 animate-pulse">
             <SparklesIcon className="size-3.5 fill-[#00a6d6] text-[#00a6d6]" />
-            Introducing Vora AI Agents v2.0
+            Introducing Vora AI Agents v1.0
           </div>
 
           <h1 className="text-4xl font-extrabold tracking-tight text-[#0f172a] sm:text-5xl lg:text-6xl">
             Meet Smarter with{" "}
             <span className="relative inline-block text-[#0077b6]">
               AI Agents
-              <svg className="absolute -bottom-2 left-0 w-full h-2 text-[#00a6d6]/60" viewBox="0 0 100 10" preserveAspectRatio="none">
-                <path d="M0,7 C30,2 70,2 100,7" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" />
+              <svg
+                className="absolute -bottom-2 left-0 w-full h-2 text-[#00a6d6]/60"
+                viewBox="0 0 100 10"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M0,7 C30,2 70,2 100,7"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  fill="none"
+                  strokeLinecap="round"
+                />
               </svg>
             </span>
           </h1>
 
           <p className="mt-6 text-lg text-[#667085] leading-relaxed">
-            Vora AI automatically joins your video calls, transcribes conversations in real time, and deploys customizable AI agents that extract summaries, highlight action items, and keep your workspace synced.
+            Vora AI automatically joins your video calls, transcribes
+            conversations in real time, and deploys customizable AI agents that
+            extract summaries, highlight action items, and keep your workspace
+            synced.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -53,11 +75,17 @@ export function Hero() {
           <div className="flex items-center justify-between border-b border-[#d9e8f2] pb-3 mb-3 px-2">
             <div className="flex items-center gap-2">
               <span className="h-3 w-3 rounded-full bg-[#ef4444] animate-ping" />
-              <span className="text-xs font-semibold text-[#0f172a] tracking-wider uppercase">Live: Product Alignment Sync</span>
+              <span className="text-xs font-semibold text-[#0f172a] tracking-wider uppercase">
+                Live: Product Alignment Sync
+              </span>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-xs text-[#667085] font-medium bg-[#f1f7fb] px-2 py-0.5 rounded-[4px] border border-[#d9e8f2]">00:18:42</span>
-              <span className="text-xs font-medium text-white bg-[#ef4444] px-2.5 py-0.5 rounded-[4px] shadow-sm">REC</span>
+              <span className="text-xs text-[#667085] font-medium bg-[#f1f7fb] px-2 py-0.5 rounded-[4px] border border-[#d9e8f2]">
+                00:18:42
+              </span>
+              <span className="text-xs font-medium text-white bg-[#ef4444] px-2.5 py-0.5 rounded-[4px] shadow-sm">
+                REC
+              </span>
             </div>
           </div>
 
@@ -135,23 +163,40 @@ export function Hero() {
               <div className="flex-1 border border-[#d9e8f2] rounded-[6px] p-3 flex flex-col min-h-[170px] max-h-[190px] overflow-hidden bg-white">
                 <div className="flex items-center gap-1.5 mb-2 pb-1.5 border-b border-[#d9e8f2]">
                   <MessageSquareIcon className="size-3.5 text-[#0077b6]" />
-                  <span className="text-[11px] font-bold text-[#0f172a] uppercase tracking-wide">Live Transcript</span>
+                  <span className="text-[11px] font-bold text-[#0f172a] uppercase tracking-wide">
+                    Live Transcript
+                  </span>
                 </div>
                 <div className="flex-1 flex flex-col gap-2.5 overflow-y-auto text-[11px] pr-1 leading-snug">
                   <div>
-                    <span className="font-semibold text-[#023e8a]">Sarah Alana</span> <span className="text-[#667085] ml-1">10:18:22</span>
-                    <p className="text-[#0f172a] mt-0.5">Let's lock in the API architecture before we start drafting the agent deployment scripts.</p>
+                    <span className="font-semibold text-[#023e8a]">
+                      Sarah Alana
+                    </span>{" "}
+                    <span className="text-[#667085] ml-1">10:18:22</span>
+                    <p className="text-[#0f172a] mt-0.5">
+                      Let's lock in the API architecture before we start
+                      drafting the agent deployment scripts.
+                    </p>
                   </div>
                   <div>
-                    <span className="font-semibold text-[#023e8a]">John Doe</span> <span className="text-[#667085] ml-1">10:18:35</span>
-                    <p className="text-[#0f172a] mt-0.5">Agreed. Vora, please add a task to finalize the API architecture design by tomorrow evening.</p>
+                    <span className="font-semibold text-[#023e8a]">
+                      John Doe
+                    </span>{" "}
+                    <span className="text-[#667085] ml-1">10:18:35</span>
+                    <p className="text-[#0f172a] mt-0.5">
+                      Agreed. Vora, please add a task to finalize the API
+                      architecture design by tomorrow evening.
+                    </p>
                   </div>
                   <div className="bg-[#dff5fd] p-1.5 rounded-[4px] border border-[#00a6d6]/20">
                     <span className="font-semibold text-[#0077b6] flex items-center gap-1">
                       <SparklesIcon className="size-3 text-[#00a6d6]" />
                       Vora AI Agent
                     </span>
-                    <p className="text-[#023e8a] mt-0.5 italic">Added to action items: Finalize the API architecture design by tomorrow evening (Due: June 5, Owner: Sarah).</p>
+                    <p className="text-[#023e8a] mt-0.5 italic">
+                      Added to action items: Finalize the API architecture
+                      design by tomorrow evening (Due: June 5, Owner: Sarah).
+                    </p>
                   </div>
                 </div>
               </div>
@@ -160,12 +205,18 @@ export function Hero() {
               <div className="flex-1 border border-[#d9e8f2] rounded-[6px] p-3 flex flex-col min-h-[170px] max-h-[190px] overflow-hidden bg-white">
                 <div className="flex items-center gap-1.5 mb-2 pb-1.5 border-b border-[#d9e8f2]">
                   <FileTextIcon className="size-3.5 text-[#0077b6]" />
-                  <span className="text-[11px] font-bold text-[#0f172a] uppercase tracking-wide">Live Summary Notes</span>
+                  <span className="text-[11px] font-bold text-[#0f172a] uppercase tracking-wide">
+                    Live Summary Notes
+                  </span>
                 </div>
                 <div className="flex-1 overflow-y-auto text-[11px] space-y-2 pr-1">
                   <div>
-                    <span className="font-semibold text-[#0f172a]">Meeting Theme</span>
-                    <p className="text-[#667085]">API architecture definition & developer task sync.</p>
+                    <span className="font-semibold text-[#0f172a]">
+                      Meeting Theme
+                    </span>
+                    <p className="text-[#667085]">
+                      API architecture definition & developer task sync.
+                    </p>
                   </div>
                   <div>
                     <span className="font-semibold text-[#0f172a] flex items-center gap-1 mt-1">
@@ -173,9 +224,24 @@ export function Hero() {
                       Key Action Items
                     </span>
                     <ul className="list-disc pl-3 text-[#667085] mt-1 space-y-1">
-                      <li>Finalize API architecture design <span className="text-[#0077b6] font-semibold">(Sarah)</span></li>
-                      <li>Draft agent deployment scripts <span className="text-[#0077b6] font-semibold">(John)</span></li>
-                      <li>Review mock design specifications <span className="text-[#0077b6] font-semibold">(Mark)</span></li>
+                      <li>
+                        Finalize API architecture design{" "}
+                        <span className="text-[#0077b6] font-semibold">
+                          (Sarah)
+                        </span>
+                      </li>
+                      <li>
+                        Draft agent deployment scripts{" "}
+                        <span className="text-[#0077b6] font-semibold">
+                          (John)
+                        </span>
+                      </li>
+                      <li>
+                        Review mock design specifications{" "}
+                        <span className="text-[#0077b6] font-semibold">
+                          (Mark)
+                        </span>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -187,13 +253,21 @@ export function Hero() {
           <div className="flex items-center justify-between border-t border-[#d9e8f2] mt-3 pt-3 px-2">
             <div className="flex items-center gap-2">
               <span className="inline-block h-2 w-2 rounded-full bg-[#00a6d6]" />
-              <span className="text-[10px] text-[#667085] font-medium hidden sm:inline">Connected via Vora Call-Bridge</span>
+              <span className="text-[10px] text-[#667085] font-medium hidden sm:inline">
+                Connected via Vora Call-Bridge
+              </span>
             </div>
             <div className="flex items-center gap-2">
-              <button className="p-2 bg-[#f1f7fb] hover:bg-[#dff5fd] text-[#023e8a] rounded-full transition-colors border border-[#d9e8f2]" aria-label="Mute microphone">
+              <button
+                className="p-2 bg-[#f1f7fb] hover:bg-[#dff5fd] text-[#023e8a] rounded-full transition-colors border border-[#d9e8f2]"
+                aria-label="Mute microphone"
+              >
                 <MicIcon className="size-4" />
               </button>
-              <button className="p-2 bg-[#f1f7fb] hover:bg-[#dff5fd] text-[#023e8a] rounded-full transition-colors border border-[#d9e8f2]" aria-label="Toggle camera">
+              <button
+                className="p-2 bg-[#f1f7fb] hover:bg-[#dff5fd] text-[#023e8a] rounded-full transition-colors border border-[#d9e8f2]"
+                aria-label="Toggle camera"
+              >
                 <VideoIcon className="size-4" />
               </button>
               <button className="px-4 py-2 bg-[#ef4444] hover:bg-[#dc2626] text-white text-xs font-semibold rounded-[4px] shadow transition-colors ml-2">
