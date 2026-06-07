@@ -76,7 +76,7 @@ The project includes:
 1. **Clone the repository**
 
    ```bash
-   git clone <your-repository-url>
+   git clone https://github.com/udayxgoel/vora-ai.git
    cd voraai
    ```
 
